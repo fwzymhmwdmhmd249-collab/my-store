@@ -37,22 +37,12 @@ jobs:
         working-directory: mf_foods
         run: flutter analyze
 
-      - name: Build APK
+      - name: Build APK (Debug)
         working-directory: mf_foods
-        run: flutter build apk --release
-
-      - name: Build AAB
-        working-directory: mf_foods
-        run: flutter build appbundle --release
+        run: flutter build apk --debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MF-Foods-APK
-          path: mf_foods/build/app/outputs/flutter-apk/app-release.apk
-
-      - name: Upload AAB
-        uses: actions/upload-artifact@v4
-        with:
-          name: MF-Foods-AAB
-          path: mf_foods/build/app/outputs/bundle/release/app-release.aab
+          path: mf_foods/build/app/outputs/flutter-apk/app-debug.apk
